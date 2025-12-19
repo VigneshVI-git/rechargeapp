@@ -40,7 +40,7 @@ const UserLogin = () => {
           setError('Please enter a valid 10-digit mobile number')
           return
         }
-        const response = await fetch('http://localhost:5000/api/user/register', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/user/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ 
@@ -64,7 +64,7 @@ const UserLogin = () => {
         }
       } else {
         // login
-        const response = await fetch('http://localhost:5000/api/user/login', {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/user/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email, password })

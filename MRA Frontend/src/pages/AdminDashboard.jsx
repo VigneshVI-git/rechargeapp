@@ -93,7 +93,7 @@ const AdminDashboard = () => {
 
   const fetchPlans = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/plans')
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/plans`)
       if (response.ok) {
         const backendPlans = await response.json()
         setPlans(backendPlans.map(p => ({
@@ -112,7 +112,7 @@ const AdminDashboard = () => {
 
   const addPlanToBackend = async (planData) => {
     try {
-      const response = await fetch('http://localhost:5000/api/admin/plans', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/plans`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -526,7 +526,7 @@ const AdminDashboard = () => {
                           <button
                             onClick={async () => {
                               try {
-                                const response = await fetch(`http://localhost:5000/api/admin/plans/${plan.id}`, {
+                                const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/admin/plans/${plan.id}`, {
                                   method: 'DELETE'
                                 })
                                 if (response.ok) {

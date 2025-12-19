@@ -126,7 +126,7 @@ const PaymentSection = () => {
         
         console.log('Storing recharge data:', rechargePayload) // Debug log
         
-        const rechargeResponse = await fetch('http://localhost:5000/api/user/recharge', {
+        const rechargeResponse = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/user/recharge`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

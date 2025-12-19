@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Eye, EyeOff, Lock, Mail, LogIn, UserPlus, Home } from 'lucide-react'
 import { useNavigate, Link } from 'react-router-dom'
+import API_BASE_URL from '../config/api'
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('')
@@ -41,7 +42,7 @@ const AdminLogin = () => {
           return
         }
 
-        const response = await fetch('http://localhost:5000/api/admin/register', {
+        const response = await fetch(`${API_BASE_URL}/admin/register`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -64,7 +65,7 @@ const AdminLogin = () => {
         }
       } else {
         // Login mode
-        const response = await fetch('http://localhost:5000/api/admin/login', {
+        const response = await fetch(`${API_BASE_URL}/admin/login`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

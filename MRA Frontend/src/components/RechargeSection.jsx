@@ -87,7 +87,7 @@ const RechargeSection = () => {
   useEffect(() => {
     const fetchPlans = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/plans/active')
+        const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/plans/active`)
         if (response.ok) {
           const plans = await response.json()
           setAdminPlans(plans.map(p => ({
