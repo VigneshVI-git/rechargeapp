@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: var(--surface, #f8fafc);
+    color: var(--text-primary, #0f172a);
+  }
+}
+
+/* Theme variables with defaults */
+:root {
+  --primary-dark: #1e3a8a;
+  --primary-start: #3b82f6;
+  --primary-end: #8b5cf6;
+  --surface: #f8fafc;
+  --card: #ffffff;
+  --text-primary: #0f172a;
+  --text-muted: #475569;
+}
+
+@layer utilities {
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, var(--primary-start, #3b82f6) 0%, var(--primary-end, #8b5cf6) 100%);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, var(--primary-dark, #1e3a8a) 0%, var(--primary-end, #8b5cf6) 100%);
+  }
+
+  .themed-gradient {
+    background: linear-gradient(135deg, var(--primary-start, #3b82f6) 0%, var(--primary-end, #8b5cf6) 100%);
+  }
+}
